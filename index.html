@@ -899,9 +899,9 @@
     </div>
     <div class="reveal" style="margin-top:3rem;text-align:center;">
       <img
-        src="https://res.cloudinary.com/usjxey4q/image/upload/planning_lorca.jpg"
+        id="planning-img" src="https://res.cloudinary.com/usjxey4q/image/upload/planning_lorca.jpg"
         alt="Planning Le Show Lorca"
-        style="max-width:100%;width:100%;border:1px solid rgba(201,168,76,0.2);box-shadow:0 0 40px rgba(201,168,76,0.08);"
+        style="max-width:680px;width:100%;display:block;margin:0 auto;border:1px solid rgba(201,168,76,0.2);box-shadow:0 0 40px rgba(201,168,76,0.1);border-radius:2px;"
         onerror="this.parentElement.innerHTML='<p style=\'color:var(--gris);font-size:0.9rem;\'>Planning bientôt disponible.</p>'"
       >Planning bientôt disponible.</p>'"
       >
@@ -1150,6 +1150,14 @@
 
 
   // Nav toujours visible - plus de changement au scroll
+
+  // Force le rechargement de l'image planning à chaque visite
+  window.addEventListener('load', function() {
+    const img = document.getElementById('planning-img');
+    if (img) {
+      img.src = 'https://res.cloudinary.com/usjxey4q/image/upload/planning_lorca.jpg?t=' + Date.now();
+    }
+  });
 
   // Mobile menu
   function openMobileMenu()  { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
